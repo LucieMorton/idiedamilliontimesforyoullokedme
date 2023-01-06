@@ -33,7 +33,7 @@ label idmt_ch2:
         zpos -750 ypos -50 matrixtransform RotateMatrix (0,0,-30) 
     show unblink onlayer widgetoverlay 
     $ renpy.pause (2.5, hard=True) 
-    window auto 
+    window show 
     "Контроль над телом и его функциями возвращался медленно и болезненно."
     "Кое-как разлепив веки, я смог лишь понять, что чей-то тёмный силуэт стоял прямо передо мной.{w} Всё вокруг тонуло в каком-то тумане." 
     "Во рту начало ощущаться противное послевкусие... домашнего самогона, в который чего только не добавляли для крепости.{w} Серьёзно?" 
@@ -59,7 +59,7 @@ label idmt_ch2:
     $ renpy.pause (5.0, hard=True) 
     play ambience ambience_int_cabin_night 
     play music idmt_sdneirfebstel 
-    window auto 
+    window show 
     extend " Лены?" 
     th "Ну да, её.{w} Значит, и домик её?{w} Но как..." 
     "Мысли шевелились внутри моей черепной коробки, как умирающие гусеницы в опрысканных яблоках."
@@ -107,7 +107,7 @@ label idmt_ch2:
     play ambience ambience_int_cabin_night 
     $ renpy.pause (3.5, hard=True)
     play music idmt_mantra 
-    window auto 
+    window show 
     "{i}Вот, опять{/i}."
     "Что-то подобное и было со мной в том сне.{w} Словно на сеансе гипноза, из меня вытягивали сокрытое на самом дне памяти." 
     "Но я точно знал, что {i}этим воспоминаниям неоткуда было взяться{/i}." 
@@ -138,7 +138,7 @@ label idmt_ch2:
     hide blink 
     show unblink  
     $ renpy.pause (1.5, hard=True) 
-    window auto 
+    window show 
     "Прочистив нутро, я с огромным трудом присел." 
     "По-хорошему, мне надо было бы пойти к умывальникам, но я не мог даже встать." 
     show un sad pioneer at center zorder 1 with dissolve 
@@ -160,7 +160,7 @@ label idmt_ch2:
         blur 0 
         ease 4.5 blur 10 
     $ renpy.pause (4.5, hard=True) 
-    window auto 
+    window show 
     extend " Тебе память совсем отшибло?" 
     show blink onlayer widgetoverlay
     th "Поход, значит."
@@ -175,7 +175,7 @@ label idmt_ch2:
     hide blink onlayer widgetoverlay 
     show unblink onlayer widgetoverlay
     $ renpy.pause (1.5, hard=True) 
-    window auto 
+    window show 
     me "Завтра конец... смены... Поход уже был. Я не мог тут все время проваляться."
     un "Ты бредишь. Конец смены {i}послезавтра{/i}." 
     hide un with dissolve 
@@ -237,7 +237,7 @@ label idmt_ch2:
     stop ambience fadeout 5.5 
     scene idmt_black with Dissolve(5.5) 
     $ renpy.pause (7.7, hard=True) 
-    window auto 
+    window show 
     "..." 
     window hide 
     $ renpy.pause (1.5, hard=True)
@@ -264,13 +264,13 @@ label idmt_ch2:
     window hide  
     $ set_mode_adv() 
     $ renpy.pause (3.5, hard=True)
-    window auto 
+    window show 
     "Я развернул свое тело к дверному проему, из которого только что вышел." 
     scene expression(idmt_bloodypict("bg int_house_of_un_day")): 
         truecenter 
         zoom 0.47 
     show idmt_ext_house_of_un_night_without_doors zorder 1
-    with fade 
+    show unblink zorder 2 
     "Рама была пуста.{w} Сквозь неё виднелось нечто, походившее скорее на портал в преисподнюю, чем на комнатку пионерского домика." 
     me "Лена..." 
     me "Лен, подай фонарик..." 
@@ -284,7 +284,7 @@ label idmt_ch2:
     "Я кричал во всю мощь голосовых связок, хотя ясно видел, что внутри не было и не могло быть той, кому предназначались эти слова." 
     "Тогда с кем же я разговаривал всего... всего сколько-то там времени назад?" 
     "И двери вроде бы были на месте..." 
-    scene idmt_black with fade
+    show blink onlayer widgetoverlay
     "Наконец, охрипнув, я опустился на холодную землю, уткнулся головой в колени и заплакал." 
     "Разговор с Леной казался лишним в этом сценарии, словно пьяный писатель всего этого бреда вписал его туда, уже пребывая в состоянии delirium tremens." 
     "Кто-нибудь...{w} что-нибудь...{w} я больше не могу." 
@@ -297,12 +297,13 @@ label idmt_ch2:
     $ renpy.pause (6.5, hard=True) 
     play music idmt_skin 
     $ renpy.pause (20.0, hard=True) 
-    window auto 
+    window show 
     "Все же осмелившись поднять башку, я не смог узнать ничего." 
     window hide 
     $ renpy.pause (1.5, hard=True) 
+    hide blink onlayer widgetoverlay 
     scene idmt_black at idmt_mvtrix 
-    with fade 
+    show unblink zorder 2 
     $ renpy.pause (1.5, hard=True) 
     $ set_mode_nvl()
     window show 
@@ -337,7 +338,7 @@ label idmt_ch2:
         linear 18.0 xpos -1.15 rotate -90 ypos 0.6
         repeat 
     $ renpy.pause (5.5, hard=True) 
-    window auto 
+    window show 
     "Фигуры в одинаковых пионерских одеждах, незапоминающиеся, скрученные." 
     "С их лиц как будто заживо содрали кожу. Из-за воротников рубашек торчали куски верёвок." 
     th "Спят убитые игрушки вечным сном."
@@ -348,14 +349,14 @@ label idmt_ch2:
     stop music fadeout 5.5
     scene idmt_black with Dissolve(5.5) 
     $ renpy.pause(2.5, hard=True) 
-    window auto
+    window show
     "Адский трип прекратился.{w} Я, вылетев из ниоткуда в позе эмбриона, вновь почувствовал под собой землю." 
     "{cps=10}Ожидая увидеть перед собой домик Лены или, на худой конец, свой домик, я-{/cps}{nw}" 
     window hide
     play music idmt_blackearrape
     scene cg epilogue_mi_4 with vpunch
     $ renpy.pause (6.6, hard=True) 
-    window auto 
+    window show 
     "{cps=10}{size=66}{color=#ff0000}КАКОГО...{/color}{/size}{/cps}{nw}" with vpunch
     window hide 
     $ renpy.pause (1.5, hard=True) 
