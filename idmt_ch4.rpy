@@ -15,7 +15,7 @@ label idmt_ch4:
     scene bg semen_room at idmt_bxw_filter with fade
     $ renpy.pause (1.5, hard=True) 
     play ambience idmt_wakeup fadein 60.0
-    window auto 
+    window show 
     th "Я...{w} {i}действительно в своей квартире{/i}?" 
     th "Неужели проклятый Совёнок решил отпустить меня?" 
     th "Если да, то...{w} почему я не ощущал радости?" 
@@ -60,7 +60,7 @@ label idmt_ch4:
     $ renpy.pause (2.5, hard=True)
     show blink zorder 2 
     $ renpy.pause (1.5, hard=True) 
-    window auto 
+    window show 
     "Я осознал, что лежал, уткнувшись лицом в пол." 
     "Вода заливалась мне в уши.{w} Я захлёбывался." 
     "Кое-как мне удалось встать." 
@@ -112,7 +112,7 @@ label idmt_ch4:
     with dissolve 
     $ renpy.pause (2.5, hard=True) 
     play music idmt_sicksociety 
-    window auto 
+    window show 
     "Наружу я все же вышел.{w} Или выплыл."
     "Осмотревшись, я не смог узнать родной двор, улицу, город..." 
     me "Н-на мес-сте Моск-квы долж-жно б-было стать ог-громное озеро..." with vpunch
@@ -154,7 +154,7 @@ label idmt_ch4:
     scene idmt_bus_stop zorder 3 
     show layer master at idmt_bloodlake
     $ renpy.pause (2.5, hard=True)
-    window auto 
+    window show 
     "Я сам не заметил, как оказался у автобусной остановки." 
     "Только там ко мне понемногу начало возвращаться некое подобие ясности мышления." 
     "Может быть, последние искорки угасшего навеки рассудка."
@@ -165,7 +165,7 @@ label idmt_ch4:
     $ renpy.pause (2.5, hard=True) 
     play sound sfx_owl_far 
     $ renpy.pause (2.5, hard=True) 
-    window auto 
+    window show 
     th "{i}И здесь тоже???{/i}" 
     window hide 
     $ renpy.pause (2.5, hard=True) 
@@ -173,7 +173,7 @@ label idmt_ch4:
     show un normal coat1 at center zorder 1 onlayer widgetoverlay
     show unblink zorder 2 onlayer widgetoverlay 
     $ renpy.pause (2.5, hard=True) 
-    window auto 
+    window show 
     "Я поднял взгляд." 
     "Лена.{w} Ну конечно же.{w} Кого я ещё должен был ждать?" 
     "Она, в отличие от меня, прекрасно соблюдала все условности {i}холодной погоды{/i}, тепло одевшись." 
@@ -255,7 +255,7 @@ label idmt_ch4:
     with dissolve 
     "Ладно. Автобус уже стоял на остановке передо мной, гостеприимно распахнув свои двери." 
     "А Лена появлялась и исчезала уже несчётное число раз.{w} И лишь это исчезновение оставило после себя тягостное предчувствие."
-    "Сиденья находились довольно высоко, чтобы кровь почти не заливалась внутрь.{w} Но какая разница..." 
+    "Кровь омывала ступеньки, разливалась лужицами по полу салона, но не доставала до сидений.{w} А какая уже разница..." 
     "..." 
     window hide 
     stop sound_loop fadeout 4.5 
