@@ -81,7 +81,7 @@ label idmt_ch1:
     $ renpy.pause (0.5, hard=True) 
     scene idmt_int_house_of_mt_night2 with dspr 
     $ renpy.pause (0.5, hard=True) 
-    window auto 
+    window show 
     "Обычно в эту пору я видел уже третий сон. Но сейчас..." 
     "Сна больше не чувствовалось ни в одном глазу." 
     "Я кинул взгляд на соседнюю кровать." 
@@ -141,7 +141,7 @@ label idmt_ch1:
     show idmt_white: 
         alpha 0.2 
         ease 0.1 alpha 0 
-    window auto
+    window show
     extend " и дёрнул покрывало на себя." 
     "В воздух поднялись тучи пыли." 
     play sound_loop sfx_head_heartbeat 
@@ -160,7 +160,7 @@ label idmt_ch1:
         xpos 250 ypos -50 zpos -550 
         ease 3.5 xpos 150 ypos -30 zpos -700 
     $ renpy.pause (0.35, hard=True)
-    window auto 
+    window show 
     "Выудив из последнего обысканного шкафчика папку с надписью 'Личное дело', я подошёл с находкой к окну." 
     "В лунном свете стало ясно, что {i}листы были девственно чистыми{/i}." 
     "{i}Что-то происходило.{w} Что-то, отчаянно требовавшее моего внимания.{w} Что-то, чего не должно было произойти даже здесь.{/i}" 
@@ -177,7 +177,7 @@ label idmt_ch1:
         xpos 150 ypos -30 zpos -700 
         ease 3.5 xpos 0 ypos 0 zpos -15 
     $ renpy.pause (3.5, hard=True) 
-    window auto
+    window show
     "В последний раз нервно оглядевшись, я отшвырнул папку и шагнул на выход." 
     "Бумаги разлетелись во все стороны."
     play sound sfx_open_door_1
@@ -195,6 +195,7 @@ label idmt_ch1:
     with dissolve  
     play ambience ambience_camp_center_night 
     $ renpy.pause (1.5, hard=True) 
+    window show 
     "Я выскочил из домика и запер дверь за собой." 
     th "Достать бы доски и заколотить двери и окна." 
     "..."
@@ -237,6 +238,7 @@ label idmt_ch1:
     play ambience ambience_camp_center_night 
     $ renpy.pause (1.5, hard=True)  
     play music idmt_night 
+    window show 
     "..." 
     "Твою мать."
     "Что за нахрен?" 
@@ -271,7 +273,7 @@ label idmt_ch1:
     $ renpy.pause (5.5, hard=True) 
     scene bg ext_house_of_sl_day at idmt_night_filter with dissolve 
     $ renpy.pause (1.5, hard=True) 
-    window auto 
+    window show 
     "Первым меня не особо приветливо встретил, внезапно вынырнув из темноты, домик {i}активистки{/i} и {i}сони{/i}." 
     "Я неловко начал топтаться у его порога и что-то бурчать себе под нос." 
     "Очевидная мысль, что нужно, например, постучаться, далеко не сразу пришла мне на ум." 
@@ -406,9 +408,9 @@ label idmt_ch1:
         ease 4.5 zoom 1.222
     $ renpy.pause (4.5, hard=True) 
     stop music 
-    window auto 
-    scene bg ext_houses_day at idmt_night_filter 
-    play ambience ambience_camp_center_night
+    play ambience ambience_camp_center_night 
+    scene bg ext_houses_day at idmt_night_filter  
+    window show
     "Она взывала ко мне голосами миллиона Лен, простирала ко мне свои призрачные щупальца, пряно пахнувшие гемоглобином." 
     "Меня не могло надолго хватить.{w} Слабое сопротивление было быстро сломлено." 
     "Тело двинулось с места на этот зов, на манер зомби вытянув руки вперёд." 
@@ -431,11 +433,11 @@ label idmt_ch1:
     $ renpy.pause (6.66, hard=True) 
     stop music fadeout 0.5
     $ renpy.pause (6.66, hard=True) 
-    window auto 
+    window show 
     "..." 
     "Я зашёл в домик." 
     "Я просто в него зашёл.{w} Никто на меня не набросился, не ударил, не проткнул мне ножом глотку.{w} Ничего." 
-    "И в последний момент меня это... даже как-то разочаровало." 
+    "И в последний момент меня это...{w} даже как-то разочаровало." 
     scene expression(idmt_darkpict("bg int_house_of_un_day")) 
     show unblink zorder 1
     me "Что же ты мне расскажешь, Лена..." 
@@ -451,6 +453,7 @@ label idmt_ch1:
     "Лена молчала.{w} Была ли она здесь..." 
     "{i}Существовала ли она вообще{/i}..." 
     "Я скосил глаза вбок{nw}" 
+    window hide
     show idmt_un_suicide zorder 2: 
         matrixcolor BrightnessMatrix(0.4) * ContrastMatrix(2.5) * ColorizeMatrix("#000000", "#ff0000")
     play sound idmt_glitch 
@@ -467,7 +470,8 @@ label idmt_ch1:
     show expression(idmt_burneyespict("bg int_house_of_un_day")) with dissolve: 
         alpha 0.1 
         idmt_dizzy (2.5, 2.5) 
-    play sound_loop sfx_head_heartbeat fadein 45.5
+    play sound_loop sfx_head_heartbeat fadein 45.5 
+    window show
     extend " и не успел ни различить очертаний, ни понять, что я увидел."
     "Сетчатку будто обожгло." 
     "Сила земного притяжения возросла во много раз.{w} Боль в руке стала нестерпимой." 
