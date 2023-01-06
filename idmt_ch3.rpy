@@ -12,7 +12,7 @@ label idmt_ch3:
     show layer master 
     stop ambience 
     $ renpy.pause (2.5, hard=True) 
-    window auto 
+    window show 
     "Архидодик Семён Персунов, 'Сны хиккана'." 
     "..."
     "Я ещё не умер, но уже вижу предсмертные галлюцинации." 
@@ -26,7 +26,7 @@ label idmt_ch3:
     with fade 
     play music idmt_blackearrape
     $ renpy.pause (1.5, hard=True) 
-    window auto 
+    window show 
     "Я зашёл в черную комнату, где находился чёрный демон." 
     "Моей задачей было отыскать его." 
     th "Ну да, я же такой храбрый, что можно без опаски поручить что-то подобное кому-то вроде меня." 
@@ -43,14 +43,15 @@ label idmt_ch3:
     scene cg epilogue_un_good: 
         matrixcolor BrightnessMatrix(0) * SaturationMatrix(1.0)
         ease 6.66 matrixcolor BrightnessMatrix(-0.3) * SaturationMatrix(0.1)
-    show prologue_dream
-    with fade 
+    show prologue_dream zorder 1
+    show unblink zorder 2 
     play music idmt_redblack
     $ renpy.pause (2.5, hard=True)
-    window auto 
+    window show 
     extend " сцена переменилась." 
     "Я увидел Лену."
-    "Она поставила кружку с чаем на столик рядом с креслом."
+    "Она поставила кружку с кофе на столик рядом с креслом." 
+    "В кружке меланхолично плавали разводы гноя и притворялись кофейной пенкой."
     "В камине тихо потрескивали дрова, а за окном бушевала метель."
     "Я укутался в плед и посмотрел на Лену." 
     me "Лена?" 
@@ -119,8 +120,9 @@ label idmt_ch3:
         zoom 0.33
         pos(1030, 192) 
     $ renpy.pause (2.22, hard=True) 
-    window auto 
-    "Когда я умру, я расскажу Лене эти сны..." 
+    window show 
+    "{i}Моё зрение стало почти совершенным...{/i}"
+    "Когда я умру, я расскажу Лене эти видения..." 
     window hide 
     $ renpy.pause (2.22, hard=True) 
     show screen tear(25, 0.1, 1, 0, 40)
@@ -145,9 +147,9 @@ label idmt_ch3:
     hide idmt_black 
     show unblink zorder 2
     play ambience ambience_int_cabin_night 
-    $ renpy.pause (2.5, hard=True) 
-    window auto 
+    $ renpy.pause (2.5, hard=True)  
     play music idmt_wildlovvers 
+    window show 
     "Реальность показалась продолжением ужасного забытья." 
     th "Снова Лена.{w} Снова её проклятый домик." 
     th "Куда бы я ни шёл, я оказывался здесь.{w} Он засасывал меня в себя, как трясина." 
@@ -247,7 +249,7 @@ label idmt_ch3:
         ease 2.5 alpha 0.5 
     with vpunch 
     play music idmt_outspace 
-    window auto 
+    window show 
     "Однако, даже не увидев замаха, я мигом оказался на полу." 
     "Мир померк.{w} Мою шею что-то сдавило, будто тисками, и сжимало все сильнее, выдавливая из меня душу." 
     window hide 
@@ -290,7 +292,7 @@ label idmt_ch3:
     hide idmt_redmask4 onlayer widgetoverlay 
     hide idmt_veins onlayer widgetoverlay
     play music idmt_myjoyptpf 
-    window auto 
+    window show 
     "Я хрипел.{w} Просто чудо, что Лена не добила меня." 
     "В одном она была права - я не понял ничего.{w} Но мне было вовсе не до этого." 
     "Я оглянулся.{w} Лена с отрешённым видом привалилась к стене, уставившись перед собой стеклянными глазами."
@@ -298,8 +300,8 @@ label idmt_ch3:
     th "Настолько, насколько здесь это вообще возможно." 
     "Я рванулся" with vpunch
     extend " и медленно, словно во сне, выбежал из домика," 
-    play ambience ambience_camp_center_night
-    window hide
+    window hide 
+    play ambience ambience_camp_center_night 
     scene idmt_ext_house_of_un_night 
     show layer master: 
         zoom 1.10 anchor (48, 27)
@@ -315,7 +317,7 @@ label idmt_ch3:
     $ renpy.pause (3.5, hard=True) 
     show bg ext_path2_night zorder 2 with dissolve 
     $ renpy.pause (1.5, hard=True)
-    window auto 
+    window show 
     extend " из последних сил прокладывая себе путь сквозь вязкий, как кисель, воздух в сторону леса." 
     "Мне вдогонку неслись мольбы и проклятия, перемалывая мои перепонки в кашу." 
     "Не всё еще было кончено.{w} Наверное, лишь чудо помогло бы мне пережить эту злую ночь." 
@@ -324,7 +326,8 @@ label idmt_ch3:
     play sound sfx_owl_far
     dreamgirl "Кы-ысь... кы-ысь..." 
     show idmt_eyes zorder 3: 
-        additive 0.5
+        additive 0.5 
+    show idmt_veins zorder 4
     "Бесконечное множество раз мне виделись во тьме зеленоватые отблески, похожие на чьи-то всевидящие глаза." 
     "И вот, когда я почувствовал, что ногам не сделать больше ни одного шага, ветви передо мной расступились"  
     scene bg ext_old_building_night_moonlight with dissolve 
@@ -339,7 +342,7 @@ label idmt_ch3:
     "Оставить все свои страхи и всё остальное далеко позади." 
     "Забиться в подвал и...{w=1.5} уж лучше гнить там." 
     th "Весь свет во мне и так погас. А снаружи его никогда и не было." 
-    "Я пересёк ведьмин круг, оглянулся и открыл входную дверь полусгнившего здания." 
+    "Я пересёк ведьмин круг и открыл входную дверь полусгнившего здания." 
     play sound idmt_squeakwithecho
     "Она заскрипела на весь лес так, что я сразу понял: все мои петляния по лесу были лишь пустой тратой сил, времени и эмоций." 
     stop ambience
@@ -361,10 +364,9 @@ label idmt_ch3:
     show cg d4_catac_un zorder 2: 
         blur 3.5 
     $ renpy.pause (6.5, hard=True) 
-    window auto 
     stop ambience
     scene bg int_old_building_night 
-    window auto
+    window show
     th "Да-да, спасибо за напоминание." 
     "Может, это Лена и насылала все эти видения? Я бы не удивился." 
     "И кто знает, если бы я не был таким пугливым и всматривался в них как следует..." 
@@ -413,7 +415,7 @@ label idmt_ch3:
         matrixcolor SaturationMatrix(1.0) * BrightnessMatrix(0)
         linear 111 matrixcolor SaturationMatrix(0.1) * BrightnessMatrix(-0.1)
     show uv normal far at center zorder 1 
-    with fade 
+    show unblink zorder 2 
     "От осознания того факта, что я тут не один, кхм, пережидал радиационную опасность, я вздрогнул." with vpunch
     "Это была не Лена, нет.{w} Это было что-то... Хуже? Лучше? А откуда мне знать?" 
     "О существовании в этом лагере кого-то ещё, кроме Лены и всех тех, чьи имена, повадки и роли улетучились из памяти, я и не подозревал." 
@@ -482,7 +484,7 @@ label idmt_ch3:
         ease 10 ypos 1.0 
     with fade 
     $ renpy.pause (10.0, hard=True) 
-    window auto 
+    window show 
     extend " и тупо уставился на чертика, из глазницы которого торчало острие ножа.{w} Бедолага даже сказать {i}мяу{/i} не успела." 
     "Стена напротив щерилась пустым дверным проемом, будто ведьма на кострище беззубым ртом.{w} Дверь лежала на полу, но {i}никто из нас вовремя ничего не услышал и не увидел.{/i}"
     "Тело существа оседало на пол, как в замедленной съёмке, а за ним стояла Лена и демонстрировала страшной улыбкой, кто тут настоящая нечистая сила." 
@@ -490,8 +492,8 @@ label idmt_ch3:
     "{cps=10}Не подходи.{/cps}" 
     "{cps=10}Не подходи.{/cps}" 
     "{cps=10}Не подхо-{/cps}{nw}" 
-    stop ambience
     window hide 
+    stop ambience  
     play sound idmt_glitch2
     scene bg int_catacombs_door at idmt_bxw_filter  
     $ renpy.pause (0.05, hard=True) 
@@ -520,7 +522,7 @@ label idmt_ch3:
         blur 10 
         ease 6.66 blur 0
     $ renpy.pause (6.66, hard=True) 
-    window auto 
+    window show 
     "Я..." 
     "Я дома?" 
     window hide 
