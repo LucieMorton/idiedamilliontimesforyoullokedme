@@ -32,12 +32,7 @@ init:
     image idmt_ext_house_of_un_night = "IDMT/images/ext_house_of_un_night.jpg" 
     image idmt_ext_house_of_un_night_without_doors = "IDMT/images/ext_house_of_un_night_without_doors.png"
     image idmt_ext_square_lastact = "IDMT/images/ext_square_lastact.png"
-    image idmt_eyes: 
-        "IDMT/images/eyes1.png" with Dissolve (1.5)
-        3.0 
-        "IDMT/images/eyes2.png" with Dissolve (1.5) 
-        3.0 
-        repeat 
+    image idmt_eyes = "IDMT/images/eyes.png" 
     image idmt_flashlight: 
         "IDMT/images/flashlight.png" 
         alpha 1.0 
