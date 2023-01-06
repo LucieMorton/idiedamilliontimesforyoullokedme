@@ -307,7 +307,7 @@ label idmt_ch5:
     scene cg epilogue_un_bad_red with fade 
     $ prolog_time() 
     $ renpy.pause (2.5, hard=True) 
-    window auto
+    window show
     me "{cps=10}Что же ты мне расскажешь, Лена...{/cps}" 
     me "{cps=10}Не поверишь, мне вдруг столько всего захотелось у тебя спросить.{/cps}" 
     me "{cps=10}Только ты это, не томи.{/cps}" 
