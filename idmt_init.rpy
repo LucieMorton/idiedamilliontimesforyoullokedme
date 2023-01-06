@@ -8,7 +8,13 @@ init python:
 #globals and variables 
 init: 
     $ witchhouse_shake = 0 
-    $ witchhouse_musicpos = None
+    $ witchhouse_musicpos = None 
+
+init python:
+    def get_pos(channel='music'):
+        pos = renpy.music.get_pos(channel=channel)
+        if pos: return pos
+        return 0
 
 
 #transforms 
@@ -120,11 +126,6 @@ init python:
         first_part = Transform(disp, crop_relative=True, crop=(0.0, 0.0, cut_fract, 1.0))
         second_part = Transform(disp, crop_relative=True, crop=(cut_fract, 0.0, 1.0, 1.0))
         return HBox(second_part, first_part) 
-
-    def get_pos(channel='music'):
-        pos = renpy.music.get_pos(channel=channel)
-        if pos: return pos
-        return 0
 
     def screenshot_srf():
         srf = renpy.display.draw.screenshot(None)
@@ -518,7 +519,19 @@ init python:
             rv.operation = renpy.display.render.IMAGEDISSOLVE
             rv.operation_alpha = 1.0
             rv.operation_complete = self.oc + math.pow(math.sin(st * self.speed / 8), 64 * self.frequency) * self.amount
-            rv.operation_parameter = self.op            
+            rv.operation_parameter = self.op 
+            if renpy.display.render.models: 
+                target = rv.get_size() 
+                if self.op < 1:
+                    self.op = 1 
+                start = -1.0
+                end = self.op / 256.0
+                offset = start + (end - start) * rv.operation_complete 
+                rv.mesh = True
+                rv.add_shader("renpy.imagedissolve",)
+                rv.add_uniform("u_renpy_dissolve_offset", offset)
+                rv.add_uniform("u_renpy_dissolve_multiplier", 256.0 / self.op)
+                rv.add_property("mipmap", renpy.config.mipmap_dissolves if (self.style.mipmap is None) else self.style.mipmap) 
             rv.blit(mb, (0, 0), focus=False, main=False)
             rv.blit(nr, (0, 0), focus=False, main=False)
             rv.blit(cr, (0, 0))            
